@@ -47,7 +47,7 @@ const apiCall = axios.create({
 - 토큰 A는 외부에서 제어를 하지 못 하도록 httpOnly 옵션이 있으며, request의 헤더에 자동으로 전송된다.
 - 발급받은 토큰 B도 cookie에 저장한다.
 - 토큰 B는 이제 인증 외의 모든 요청의 헤더에 Authorization: Bearer {token} 형식으로 자동으로 등록하도록 한다.
-- 이미 스크립트 내에서 제어를 하는 값이므로 httpOnly 옵션은 크게 의미가 없다.
+- 이미 스크립트 내에서 제어를 하는 값이고 JWT의 payload에 실려있는 값들을 활용하는경우가 많아 httpOnly 옵션은 사용하지 않는편이 좋다.
 - Authorization 헤더 예시
 ```javascript
 const userToken = 'userTokenSampler' // 이 부분에 jwt가 담긴다.
