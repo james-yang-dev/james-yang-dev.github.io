@@ -81,10 +81,10 @@ SPA를 기본으로 사용하는 추세에 JWT는 선택이 아닌 필수처럼 
 
 ## 참고 내용
 
-[JWT](https://jwt.io/)
-[JWT이해하기](http://www.opennaru.com/opennaru-blog/jwt-json-web-token/)
-[XSS를 이용한 JWT 탈취-local storage](https://medium.com/redteam/stealing-jwts-in-localstorage-via-xss-6048d91378a0)
-[CSRF를 이용한 JWT 탈취-cookie](https://medium.com/@mena.meseha/how-to-defend-against-csrf-using-jwt-8adebe64824b)
-[withCredentials 과 CORS * 의 상관관계](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials)
-[OAuth](https://oauth.net/2/)
-[OAuth이해하기](https://d2.naver.com/helloworld/24942)
+[JWT](https://jwt.io/)  
+[JWT이해하기](http://www.opennaru.com/opennaru-blog/jwt-json-web-token/)  
+[XSS를 이용한 JWT 탈취-local storage](https://medium.com/redteam/stealing-jwts-in-localstorage-via-xss-6048d91378a0)  
+[CSRF를 이용한 JWT 탈취-cookie](https://medium.com/@mena.meseha/how-to-defend-against-csrf-using-jwt-8adebe64824b)  
+[withCredentials 과 CORS * 의 상관관계](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS/Errors/CORSNotSupportingCredentials)  
+[OAuth](https://oauth.net/2/)  
+[OAuth이해하기](https://d2.naver.com/helloworld/24942)  
