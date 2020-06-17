@@ -17,6 +17,16 @@
 - httpOnly : 스크립트를 통해 접근할 수 없으며, 이 값은 request의 withCredential : true 옵션을 통해 자동으로 header에 전송 된다.
 - secure : https를 통해서만 사용될 수 있도록 제한을 둔다
 - domain : 해당 도메인을 통해서만 사용될 수 있도록 제한을 둔다
+- API 호출시 withCredentials 옵션 예시
+```javascript
+const apiCall = axios.create({
+  withCredentials: true,
+  headers: {
+    'Accept' : 'application/json',
+    'Content-Type' : 'x-www-form-urlencoded'
+  }
+});
+```
 
 ## 토큰 B - JWT
 
@@ -26,6 +36,17 @@
 - 발급받은 토큰 B도 cookie에 저장한다.
 - 토큰 B는 이제 인증 외의 모든 요청의 헤더에 Authorization: Bearer {token} 형식으로 자동으로 등록하도록 한다.
 - 이미 스크립트 내에서 제어를 하는 값이므로 httpOnly 옵션은 크게 의미가 없다.
+- Authorization 헤더 예시
+```javascript
+const userToken = 'userTokenSampler' // 이 부분에 jwt가 담긴다.
+const apiCall = axios.create({
+  headers: {
+    'Accept' : 'application/json',
+    'Content-Type' : 'x-www-form-urlencoded',
+    'Authorization' : `Bearer ${userToken}`
+  }
+});
+```
 
 ## 인증 실패
 
