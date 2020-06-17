@@ -1,6 +1,6 @@
 # cookie를 통한 jwt를 사용
 
-![인증 프로세스](https://user-images.githubusercontent.com/52027534/84857751-b4a41a00-b0a4-11ea-94b9-53d2a0ccd5e9.png)
+![인증 프로세스](https://user-images.githubusercontent.com/52027534/84860269-b91f0180-b0a9-11ea-9839-9e87d5cfe341.png)
 
 ## 인증 프로세스
 
