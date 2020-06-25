@@ -1,6 +1,7 @@
 # Simple Local Rest Server
 
-JSON 포맷을 기준으로 로컬에서 사용하거나, 임시 서버로 사용하기 위함이 목적이기 때문에 복잡하지 않게 구성을 하는 것이 주안점이다.
+JSON 포맷을 기준으로 임시 서버를 만드는것이 목표 이다.  
+로컬에서 사용하거나, 임시 서버로 사용하기 위함이 목적이기 때문에 복잡하지 않게 구성하는 것이 주안점이다.
 
 ## 설치 과정
 
@@ -23,7 +24,7 @@ json 구조의 파일을 이용해 DB처럼 사용하는 간단한 테스트 서
 
 #### lowdb
 
-함수를 통해 간단하게 DB를 제어할 수 있게 해주는 모듈이다. 이 글에선 모든 데이터 조작이 lowdb를 통해 이뤄진다.  
+함수를 통해 간단하게 DB를 제어할 수 있게 해주는 모듈이다. 이 문서에선 모든 데이터 조작이 lowdb를 통해 이뤄진다.  
 [lowdb 참조 문서](https://github.com/typicode/lowdb)
 
 #### nodemon
@@ -84,8 +85,7 @@ db의 스키마가 될 json 파일을 의미한다. 보통 사용되는 json 형
 
 ### server.js
 
-필요한 위치에 서버 파일을 생성한다. 필요한 기능들을 선언한다.  
-서비스를 별도로 등록할 수 있기 때문에 한 공간에 필요한 파일들을 모아둔다.  
+실제 node를 통해서 서비스 될 서버를 의미한다. 한 공간에 필요한 파일들을 모아둔다.(server.js, db.json 등)  
 이 문서에서는 **/src/data/** 밑에 위치한다.
 
 ```javascript
@@ -111,13 +111,35 @@ const db = low(adapter)
 
 server.use(middlewares)
 server.use(bodyParser.json())
+
+/*
+이 사이에 router의 내용을 구현한다. 아래 참조
+*/
+
+server.use(router)
+
+server.listen(7979, () => {
+  console.log('JSON Server is running')
+})
+
+```
+
+package.json에는 아래처럼 사용 한다
+
+```json
+ "scripts": {
+    "api": "nodemon src/data/server.js",
+  }
+```
+npm을 통한 사용
+```bash
+npm run api
 ```
 
 ### router 정의
 
-router를 통해 넘어오는 url 및 method, request들을 정의한다.  
-서버 파일안에 위치하며 기능이 많아지는 경우 별도의 라우터로 관리하는편이 좋다.  
-이 글에선 server.js안에 기록한다.
+router를 통해 넘어오는 url 및 method, request들을 정의한다. 서버 파일안에 위치하며, 기능이 많아지는 경우 별도의 라우터로 관리하는편이 좋다.  
+이 문서에선 server.js안에 기록한다.
 
 #### 일반 조회
 
@@ -136,7 +158,7 @@ server.get('/users', (req, res) => {
 
 일반적으로 사용되는 배열 함수를 그대로 사용한다.
 
-find : 1개 조회(가장 첫번째가 조회됨)
+**find** : 1개 조회(가장 첫번째가 조회됨)
 
 ```javascript
 server.get('/users/:id', (req, res) => {
@@ -151,7 +173,7 @@ server.get('/users/:id', (req, res) => {
 })
 ```
 
-filter : 조건에 맞는 값 전부 조회
+**filter** : 조건에 맞는 값 전부 조회
 
 ```javascript
 server.get('/users/:id', (req, res) => {
@@ -275,7 +297,7 @@ server.delete('/todo', (req, res) => {
 
 ### Axios
 
-이 글에서는 **axios**를 사용해서 호출하는 모듈을 만든다.  
+이 문서에서는 **axios**를 사용해서 호출하는 모듈을 만든다.  
 아주 간단한 예제이며, 실 사용과는 차이가 있다는 점을 알아둬야 한다.
 
 #### index.js
