@@ -15,11 +15,11 @@ remote_theme             : "mmistakes/minimal-mistakes"
 minimal_mistakes_skin    : "contrast" #"default" "air", "aqua", , "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
-locale                   : "en-US"
-title                    : "Undefined"
+locale                   : "ko-KR"
+title                    : ""
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
-name                     : "Jaems yang"
+name                     : "James yang"
 description              : "welcome dev"
 url                      : "https://james-yang-dev.github.io"
 baseurl                  : ""
